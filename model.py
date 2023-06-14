@@ -1,1 +1,1 @@
-"""ello mate"""
+"""Models for storing reservations in database"""
