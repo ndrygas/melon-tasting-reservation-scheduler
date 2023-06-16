@@ -2,9 +2,6 @@
 
 from model import db, User, Reservation, connect_to_db
 
-#add_reservation
-#create_user
-
 def create_user(username, password):
     """Create and return a new user."""
 
@@ -29,30 +26,30 @@ def get_all_users():
 
     return User.query.all()
 
-def create_note(user_id, title="", body="", favorite=True):
-    """Create and return a new note."""
+def create_reservation(user_id, date):
+    """Create and return a new reservation."""
 
-    note = Note(user_id=user_id, title=title, body=body)
+    reservation = Reservation(user_id=user_id, date=date)
 
-    return note
-
-
-def get_note_by_id(note_id):
-    """Return a note by its primary key (ID)."""
-
-    return Note.query.get(note_id)
+    return reservation
 
 
-def get_notes_by_user_id(user_id):
-    """Return all the notes made by a user, ordered by note ID."""
+def get_reservation_by_id(reservation_id):
+    """Return a reservation by its primary key (ID)."""
 
-    return Note.query.filter_by(user_id=user_id).order_by("note_id").all()
+    return Reservation.query.get(reservation_id)
 
 
-def get_all_notes():
-    """Returns all notes."""
+def get_reservations_by_user_id(user_id):
+    """Return all the reservations made by a user, ordered by reservation ID."""
 
-    return Note.query.all()
+    return Reservation.query.filter_by(user_id=user_id).order_by("reservation_id").all()
+
+
+def get_all_reservations():
+    """Returns all reservations."""
+
+    return Reservation.query.all()
 
 
 if __name__ == "__main__":
