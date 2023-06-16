@@ -36,16 +36,13 @@ def create_account():
 
     print(username)
 
-    if username != "" and password != "":
+    if username != "":
         user = crud.get_user_by_name(username)
         if user:
             flash("That username already exists. Please use a different name.")
         else:    
-            user = crud.create_user(username, password)
+            user = crud.create_user(username)
             db.session.add(user)
-            db.session.commit()
-            initial_note = crud.create_note(user_id=user.user_id)
-            db.session.add(initial_note)
             db.session.commit()
             flash("Success! Please log in.")
     else: 
@@ -92,9 +89,8 @@ def user_home(username):
     else:
         username = session["username"]
         user = crud.get_user_by_name(username)
-        reservations = crud.get_reservation_by_user_id(user.user_id)
         
-        return render_template('note.html', user=user, reservations=reservations)
+        return render_template('reservation.html', user=user)
 
 
 if __name__ == "__main__":

@@ -2,10 +2,10 @@
 
 from model import db, User, Reservation, connect_to_db
 
-def create_user(username, password):
+def create_user(username):
     """Create and return a new user."""
 
-    user = User(username=username, password=password)
+    user = User(username=username)
     
     return user
 
