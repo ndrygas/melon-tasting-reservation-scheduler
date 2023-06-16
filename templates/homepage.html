@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+
+
+{% block body %}
+
+  
+ <!-- <div class="d-flex justify-content-center align-middle"> -->
+    <h3>Log In</h3>
+      <!-- Form to Log In to a user account -->
+    <form method="POST" action="/login">
+      <div class="login-group">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="l-username">
+      </div>
+      <!-- <div class="login-group">
+          <label for="password">Password </label>
+          <input type="password" name="password" id="l-password">
+      </div> -->
+      <div class="login-group">
+          <input type="submit">
+      </div>
+    </form>
+  </div>
+  
+  <h3>Create Account</h3>
+    <!-- Form to create a new user account -->
+  <form method="POST" action="/create-account">
+    <div class="create-account-group">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="c-username">
+    </div>
+    <!-- <div class="create-account-group">
+        <label for="password">Password </label>
+        <input type="password" name="password" id="c-password">
+    </div> -->
+    <div class="create-account-group">
+        <input type="submit">
+    </div>
+  </form>
+
+  {% endblock %}
